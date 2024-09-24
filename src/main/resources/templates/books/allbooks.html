@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Библиотека</title>
+    <style>.center-text{text-align:center}</style>
+</head>
+<body>
+
+
+<div class="center-text">
+<span style="font-size: 140%">Список всех книг:</span></br>
+</div>
+
+<div class="center-text" th:each="temp: ${allbooks}">
+    <a th:href="@{/books/{id}(id=${temp.getId()})}"  th:text="${'ID ' + temp.getId + ' Автор - ' + temp.getAuthor() + ' / Книга - ' + temp.getTitle() + ' / Год - ' + temp.getYear()}"></a>
+</div>
+
+<div th:each="temp : ${page}">
+    <P th:text="${temp.getAuthor() + ' , ' + temp.getTitle() + ' , ' + temp.getYear()}"></P>
+</div>
+
+<div th:each="temp : ${sort_by_year}">
+    <P th:text="${temp.getAuthor() + ' , ' + temp.getTitle() + ' , ' + temp.getYear() + ' , ' + temp.getOwner()}"></P>
+</div>
+
+<div class="center-text">
+<a href="/library/books/new/">Добавить новую книгу</a></br>
+    <a href="/library/people/">Перейти к списку пользователей</a></br>
+    <a href="/library/books/search">Перейти к поиску книги</a></br>
+</div>
+
+</body>
+</html>

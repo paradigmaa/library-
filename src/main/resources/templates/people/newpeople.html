@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая учетная запись</title>
+    <style>.center-text{text-align:center}</style>
+</head>
+<body>
+<div class="center-text">
+    <h4>Создание новой учетной записи</h4>
+<form th:action="@{/people}" th:object="${newpeopleatributget}" th:method="POST" >
+    <b> <label for="name">Введите ФИО</label></b></br>
+    <input type="text" th:field="*{name}" id="name"></br>
+    <strong> <label for="age">Возраст</label></strong></br>
+    <input type="text" th:field="*{age}" id="age"></br>
+    <input type="submit" value="Подтвердить">
+<input type="reset"><br>
+</form></br>
+    <a href="/library/people/">Перейти назад ко всем пользователям</a>
+</div>
+</body>
+</html>

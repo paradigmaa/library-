@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+    <style>.center-text{text-align:center}</style>
+</head>
+<body>
+<p th:text="${finedidpeople.getId() + ', ' + finedidpeople.getName() + ', ' + finedidpeople.getAge() + ' лет' + ' (' + 'ID ' + '_' + finedidpeople.getId()+')'}">VALUE</p>
+
+<p>Книги пользователя:</p>
+
+<div th:each="temp : ${peoplebooks}">
+    <p th:text="${temp.getTitle()}" th:style="${temp.result} ? 'color: red' : 'color: black'">
+        book
+    </p>
+</div>
+
+<div th:if="${peoplebooks.isEmpty()}">
+    <p>У пользователя нет книг</p>
+</div>
+
+<a th:href="@{/people/{id}/edit(id=${finedidpeople.getId()})}"><input type="submit" value="Редактировать пользователя"/></a>
+<form th:method="DELETE" th:action="@{/people/{id}(id = ${finedidpeople.getId()})}" >
+    <input type="submit" value="Удалить пользователя">
+</form>
+<a href="/library/people">Вернуться ко всем пользователям"</a>
+</body>
+</html>

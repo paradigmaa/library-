@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать пользователя</title>
+    <style>.center-text{text-align:center}</style>
+</head>
+<body>
+<div class="center-text">
+<form th:method="POST" th:action="@{/people/{id}(id=${editpeopleatribut.getId()})}" th:object="${editpeopleatribut}">
+    <label for="name">ФИО</label></br>
+    <input type="text" th:field="*{name}" id="name"></br>
+    <label for="age">Возраст</label></br>
+    <input type="text" th:field="*{age}" id="age"></br>
+    <input type="submit" value="Подтвердить"/>
+</form>
+    <a href="/library/people">Вернуться ко всем пользователям</a>
+</div>
+</body>
+</html>

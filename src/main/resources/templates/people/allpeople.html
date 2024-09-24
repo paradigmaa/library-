@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все люди</title>
+    <style>.center-text{text-align:center}</style>
+</head>
+<body>
+<div class="center-text">
+<span style="font-size: 140%">Список всех членов библиотеки:</span>
+<div th:each="allpeople : ${allpeopleatribut}">
+    <p><strong>><a th:href="@{/people/{id}(id=${allpeople.getId()})}"
+       th:text="${allpeople.getName() +', ' + allpeople.getAge()}">user</a></strong></p>
+</div>
+<br>
+<a href="/library/people/new"><input type="submit" value="Создать нового пользователя библиотеки"/></a></br>
+    <a href="/library/books/"><input type="submit" value="Перейти в библиотеку"/></a>
+</div>
+</body>
+</html>
